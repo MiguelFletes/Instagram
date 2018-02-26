@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,17 +63,28 @@
             </objects>
             <point key="canvasLocation" x="-70" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="1Wz-Uq-QKu">
             <objects>
-                <viewController id="cWZ-L0-BAL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="feed" id="cWZ-L0-BAL" customClass="FeedViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uxW-wU-asQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="0S0-Zh-9rU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rdb-o7-VoK"/>
+                    <navigationItem key="navigationItem" id="rdb-o7-VoK">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="BGx-cV-PWL">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w2x-Zb-9Hj">
+                                <rect key="frame" x="16" y="9.5" width="79" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="insta_camera_btn"/>
+                                <connections>
+                                    <action selector="onUpload:" destination="cWZ-L0-BAL" eventType="touchUpInside" id="3uV-Xd-Wov"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybU-tQ-oqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,7 +112,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="3Cb-Zj-DYF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eDe-a8-3TN" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="eDe-a8-3TN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7IZ-r8-ria">
                         <autoresizingMask key="autoresizingMask"/>
@@ -116,13 +127,23 @@
             </objects>
             <point key="canvasLocation" x="766" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="4gU-NO-DAa">
             <objects>
-                <viewController id="MJN-qr-QBl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="MJN-qr-QBl" customClass="ProfileViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yMY-wr-Tfs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5MQ-I0-o4o">
+                                <rect key="frame" x="16" y="587" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="onSignOut:" destination="MJN-qr-QBl" eventType="touchUpInside" id="fQi-ON-2B6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="vIs-E8-2hY"/>
                     </view>
@@ -130,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azf-LL-Ymb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="134"/>
+            <point key="canvasLocation" x="2353" y="134"/>
         </scene>
         <!--Profile-->
         <scene sceneID="uVJ-Hl-QA6">
@@ -154,6 +175,7 @@
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
 </document>

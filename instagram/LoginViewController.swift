@@ -28,6 +28,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func onSignIn(_ sender: Any) {
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user, error) -> Void in
+            PFUser.logOutInBackground { (error) in
+                // PFUser.current() will now be nil
+                }
             if user != nil {
                 print("you're logged in")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
