@@ -30,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // TODO: Load and show the login view controller
             self.logOut()
         }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didCancel"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Cancel notification received")
+            self.goBack()
+        }
+        NotificationCenter.default.addObserver(forName: Notification.Name("didShare"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Share notification received")
+            self.goBack()
+        }
         if PFUser.current() != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // view controller currently being set in Storyboard as default will be overridden
@@ -52,6 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = loginViewController
             }
         })
+    }
+    
+    func goBack() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        self.window?.rootViewController = loginViewController
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

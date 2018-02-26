@@ -7,25 +7,27 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var editProfile: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        userName.text = PFUser.current() as? String
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func onSignOut(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
-        
-    }
-    
     
 
     /*
