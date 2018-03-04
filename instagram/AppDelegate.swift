@@ -38,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Share notification received")
             self.goBack()
         }
+        NotificationCenter.default.addObserver(forName: Notification.Name("upload"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Upload notification received")
+            self.upload()
+        }
         NotificationCenter.default.addObserver(forName: Notification.Name("didBack"), object: nil, queue: OperationQueue.main) { (Notification) in
             print("Back notification received")
             self.goBack()
@@ -70,7 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
         self.window?.rootViewController = loginViewController
-        
+    }
+    
+    func upload() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "UploadNavContoller")
+        self.window?.rootViewController = loginViewController
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

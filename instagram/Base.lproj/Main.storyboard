@@ -115,7 +115,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="W3T-g0-mCB" id="BpH-oi-nSP"/>
                                             <outlet property="photoView" destination="jsS-pY-g2x" id="ylG-hS-CEz"/>
-                                            <segue destination="YVT-Ud-iXx" kind="show" id="huf-xJ-W5Q"/>
+                                            <segue destination="YVT-Ud-iXx" kind="show" identifier="" id="huf-xJ-W5Q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,14 +145,13 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bro-ag-t6b">
                                 <rect key="frame" x="278" y="9.5" width="81" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="insta_camera_btn"/>
+                                <state key="normal" image="insta_camera_btn">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="Slh-L4-Ust" kind="presentation" id="1tq-SM-aqk"/>
+                                    <action selector="onCompose:" destination="cWZ-L0-BAL" eventType="touchUpInside" id="LTA-2u-9Fj"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="onCompose:" destination="cWZ-L0-BAL" id="eQK-Dl-B3j"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -234,7 +233,7 @@
         <!--Upload-->
         <scene sceneID="sUj-Dw-g7w">
             <objects>
-                <viewController id="xhV-h5-oPx" customClass="UploadViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UploadViewController" id="xhV-h5-oPx" customClass="UploadViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShY-Xe-Lax">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,7 +385,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7eL-VQ-yL8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Slh-L4-Ust" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UploadNavContoller" automaticallyAdjustsScrollViewInsets="NO" id="Slh-L4-Ust" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EKD-RT-fVj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

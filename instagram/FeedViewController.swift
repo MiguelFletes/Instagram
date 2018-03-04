@@ -140,6 +140,10 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func onCompose(_ sender: Any) {
-        self.performSegue(withIdentifier: "composeSegue", sender: nil)
+        //self.performSegue(withIdentifier: "composeSegue", sender: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("upload"), object: nil)
     }
+    
+    
+    
 }
